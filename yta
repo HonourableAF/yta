@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+  echo "Usage: yta <YouTube URL>"
+  exit 1
+fi
+
+printf '\033[?25l'
+trap 'printf "\033[?25h"' EXIT INT TERM
+
+cols=$(tput cols)
+rows=$(tput lines)
+
+mpv \
+  --vo=tct \
+  --vo-tct-width="$cols" \
+  --vo-tct-height="$rows" \
+  --vo-tct-algo=half-blocks \
+  --vo-tct-256=yes \
+  --really-quiet \
+  --osd-level=0 \
+  --cursor-autohide=always \
+  --no-terminal \
+  --ytdl-raw-options=cookies-from-browser=chromium \
+  "$1"
