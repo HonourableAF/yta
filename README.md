@@ -28,7 +28,7 @@ Play YouTube videos directly inside your terminal using colored ASCII/ANSI rende
 Clone the repository:
 
 ```bash
-git clone https://github.com/sahadebojyoti09-lang/yta.git
+git clone https://github.com/HonourableAF/yta.git
 cd yta
 chmod +x yta
 ```
